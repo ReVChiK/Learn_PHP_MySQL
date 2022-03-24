@@ -1,0 +1,16 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font: .8em "Lucida Sans", "Trebuchet MS", Verdana, Arial, Sans-Serif;
+	background-color : #4f4f97;
+	color: white;
+}
+#content, #header, #example{
+    text-align: center;
+    padding: 5px;
+}
+p{
+    margin-top: 10px;
+}

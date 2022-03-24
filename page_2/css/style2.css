@@ -1,0 +1,69 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font: .8em "Lucida Sans", "Trebuchet MS", Verdana, Arial, Sans-Serif;
+	background-color : #4f4f97;
+	color: white;
+}
+
+#header{
+	margin: 0 auto;
+}
+#example{
+	text-align: center;
+}
+h1,p{
+	text-align: center;
+	margin-top: 10px;
+	font-weight: 600;
+}
+fieldset{
+    max-width: 500px;
+    margin: 0 auto;
+    
+}
+label{
+    position: relative;
+    font-size: 15px;
+    max-width: 450px;
+    margin: 0 auto;
+    margin-left: 7px;
+    margin-top: 7px;
+    padding: 3px;
+    float: left;
+}
+._input{
+    max-width: 280px;
+	height: 25px;
+	outline: none;
+	font-size: 15px;
+	border-radius: 7px;
+	border: none;
+    margin: 0 auto;
+    margin-top: 7px;
+    margin-right: 7px;
+    float: right;
+	transition: .2s ease-in-out background-color;
+}
+a{
+	text-decoration: none;
+	text-transform: uppercase;
+	color: beige;
+	font-size: 15px;
+}
+input{
+	width: 250px;
+	height: 25px;
+	outline: none;
+	padding: 3px 5px;
+	font-size: 15px;
+	border-radius: 7px;
+	border: none;
+	transition: .2s ease-in-out background-color;
+    margin-top: 7px;
+}
+input:hover{
+	background-color: #bdbbbb;
+}

@@ -1,0 +1,36 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font: .8em "Lucida Sans", "Trebuchet MS", Verdana, Arial, Sans-Serif;
+	background-color : #4f4f97;
+	color: white;
+}
+
+#header{
+	margin: 0 auto;
+}
+#example{
+	text-align: center;
+}
+h1,p{
+	text-align: center;
+	margin-top: 10px;
+	font-weight: 600;
+	padding: 3px 5px;
+	margin-top: 7px;
+}
+input{
+	width: 180px;
+	height: 25px;
+	outline: none;
+	padding: 3px 5px;
+	font-size: 15px;
+	border-radius: 7px;
+	border: none;
+	transition: .2s ease-in-out background-color;
+}
+input:hover{
+	background-color: #bdbbbb;
+}

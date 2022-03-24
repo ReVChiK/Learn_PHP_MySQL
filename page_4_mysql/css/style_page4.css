@@ -1,0 +1,26 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font: .8em "Lucida Sans", "Trebuchet MS", Verdana, Arial, Sans-Serif;
+	background-color : #4f4f97;
+	color: white;
+}
+#content, #header, #example{
+    text-align: center;
+    padding: 5px;
+}
+p{
+    margin-top: 10px;
+	text-align: center;
+}
+input{
+	width: 170px;
+	height: 25px;
+}
+textarea{
+	margin: 10px 0;
+	outline: none;
+	padding: 5px 7px 3px 5px;
+}
