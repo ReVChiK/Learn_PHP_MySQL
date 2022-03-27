@@ -38,9 +38,11 @@ if($return_rows){
         }
     }
     echo "</ul>";
+    echo "<a href='./page4.php'>Вернуться на страницу запроса!</a>";
 }else{
     echo "<p>Следующий запрос был обработан успешно!</p>";
     echo "<p>{$query_text}</p>";
+    echo "<a href='./page4.php'>Вернуться на страницу запроса!</a>";
 }
 
 ?>
