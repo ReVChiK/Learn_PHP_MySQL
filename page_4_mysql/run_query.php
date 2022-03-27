@@ -9,25 +9,11 @@ if($query_text == null){
 }
 $result = mysqli_query($link, $query_text);
 
-$return_rows = false;
-$uppercase_query_text = trim(strtoupper($query_text));
-$location = strpos($uppercase_query_text, "CREATE");
-
-if($location === false || $location > 0){
-    $location = strpos($uppercase_query_text, "INSERT");
-    if($location === false || $location > 0){
-        $location = strpos($uppercase_query_text, "UPDATE");
-        if($location === false || $location > 0){
-            $location = strpos($uppercase_query_text, "DELETE");
-            if($location === false || $location > 0){
-                $location = strpos($uppercase_query_text, "DROP");
-                if($location === false || $location > 0){
-                    $return_rows = true;
-                }
-            }
-        }
-    }
+$return_rows = true;
+if(preg_match("/^[\t\r\n]*(CREATE|INSERT|UPDATE|DELETE|DROP)/i", $query_text)){
+    $return_rows = false;
 }
+
 
 if($return_rows){
     echo "<p>Результаты вашего запроса:</p>";
