@@ -1,37 +1,55 @@
 <?php
 
-    $file_cabinet['first_name'] = "Derek";
-    $file_cabinet['last_name'] = "Trucks";
-    $file_cabinet['email'] = "derek@Trucks.com";
-    $file_cabinet['facebook_url'] = "http://www.facebook.com/DerekTrucks";
-    $file_cabinet['twitter_id'] = "@derekansusan";
+    require "../page_4_mysql/connect.php";
 
+    $user_id = $_REQUEST['user_id'];
 
-    $first_name = $file_cabinet['first_name'];
-    $last_name = $file_cabinet['last_name'];
-    $email = $file_cabinet['email'];
-    $facebook_url = $file_cabinet['facebook_url'];
-    $twitter_id = $file_cabinet['twitter_id'];
-    
+    $first_name = trim($_REQUEST['first_name']);
+    $last_name = trim($_REQUEST['last_name']);
+    $email = trim($_REQUEST['email']);
+    $bio = trim($_REQUEST['bio']);
+    $facebook_url = str_replace("facebook.org", "facebook.com", trim($_REQUEST['facebook_url']));
+    $position = strpos($facebook_url, "facebook.com");
+    if ($position === false) {
+        $facebook_url = "http://www.facebook.com/" . $facebook_url;
+    }
+
+    $twitter_handle = trim($_REQUEST['twitter_handle']);
+    $twitter_url = "http://www.twitter.com/";
+    $position = strpos($twitter_handle, "@");
+    if ($position === false) {
+        $twitter_url = $twitter_url . $twitter_handle;
+    } else {
+        $twitter_url = $twitter_url . substr($twitter_handle, $position + 1);
+    }
+
+    $insert_sql = "INSERT INTO users (first_name, last_name, " . "email, facebook_url, twitter_handle, bio) " . "VALUES ('{$first_name}', '{$last_name}', '{$email}', " . "'{$facebook_url}', '{$twitter_handle}', '{$bio}');";
+
+    $query_result = mysqli_query($link, $insert_sql);
+
+    header("Location: page2.php?user_id=" . mysqli_insert_id());
 ?>
 
 <html>
- <head>
-    <link href="./css/style2.css" rel="stylesheet" type="text/css" />
- </head>
- <body>
-    <div id="header"><h1>PHP & MySQL: The Missing Manual</h1></div>
-    <div id="example">Пример 2.1</div>
-    <div id="content">
-        <p>Это запись той информации, которую вы отправили:</p>
-        <p>
-        Имя: <?php echo $first_name . ' ' . $last_name; ?><br />
-        Фамилия: <?php echo $last_name; ?><br />
-        Адрес электронной почты: <?php echo $email; ?><br />
-        URL-адрес Facebook: <a href='<?php echo $facebook_url?>'>Facebook</a><br />
-        Идентификатор в Twitter: <a href='<?php echo $twitter_url; ?>'>Twitter_ID</a><br />
-        </p>
-    </div>
-    <div id="footer"></div>
-</body>
+    <head>
+        <link href="./css/style2.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="header"><h1>PHP & MySQL: The Missing Manual</h1></div>
+        <div id="example">Пример 6.1</div>
+        <div id="content">
+            <p>Это запись той информации, которую вы отправили:</p>
+            <p>
+                Имя: <?php echo $first_name . " " . $last_name; ?><br />
+                Адрес электронной почты: <?php echo $email; ?><br />
+                <a href="<?php echo $facebook_url; ?>">Ваша страница на Facebook</a>
+                <br />
+                <a href="<?php echo $twitter_url; ?>">Проверьте свой Twitter-канал</a>
+                <br />
+                <p class="bio"><?php echo $bio; ?></p>
+            </p>
+        </div>
+        <div id="footer"></div>
+    </body>
 </html>
+

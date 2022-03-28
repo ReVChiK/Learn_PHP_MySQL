@@ -18,6 +18,7 @@ h1,p{
 	text-align: center;
 	margin-top: 10px;
 	font-weight: 600;
+	padding: 10px;
 }
 fieldset{
     max-width: 500px;
